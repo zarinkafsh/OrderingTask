@@ -20,9 +20,9 @@ export const TradeList = ({ data }: TradeListProps) => {
   };
 
   if (!data.length)
-    return <div className="max-w-6xl mx-auto p-4 sm:p-6">No Data Found!</div>;
+    return <div className="p-4 sm:p-6">No Data Found!</div>;
   return (
-    <table className="w-full text-sm table-fixed">
+    <table className="text-sm ">
       <thead>
         <tr className="bg-gray-800 text-gray-400">
           <th className="px-4 py-3 text-left font-semibold">Match Amount</th>

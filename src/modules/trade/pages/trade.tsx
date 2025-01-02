@@ -16,24 +16,24 @@ const Trade = () => {
   const marketTypeQuery = useMarketTypeQuery({ type: activeTab, id });
 
   return (
-    <div className="max-w-6xl mx-auto p-4 sm:p-6">
-      <div className="max-w-2xl mx-auto">
+    <div className="p-4 sm:p-6 h-full">
+      <div>
         <TabbedPanel
           activeTab={activeTab}
           tabs={tabs}
           onTabChange={(tab: string) => setActiveTab(tab)}
         />
-        <div className="bg-gray-900/90 rounded-xl shadow-xl overflow-hidden border border-gray-800">
+        <div className="bg-gray-900/90 rounded-xl shadow-xl  border border-gray-800">
           {marketTypeQuery.isLoading ? (
             <Loading />
           ) : (
             <div className="w-full">
-              <div className="overflow-x-auto">
+              <div className="">
                 {activeTab === "Sell" && (
-                  <TransactionList data={marketTypeQuery.data?.orders || []} />
+                  <TransactionList type="sell" data={marketTypeQuery.data?.orders || []} />
                 )}
                 {activeTab === "Buy" && (
-                  <TransactionList data={marketTypeQuery.data?.orders || []} />
+                  <TransactionList type="buy" data={marketTypeQuery.data?.orders || []} />
                 )}
                 {activeTab === "Trade" && (
                   <TradeList data={marketTypeQuery.data || []} />
